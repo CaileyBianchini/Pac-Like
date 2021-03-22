@@ -1,17 +1,12 @@
 #include "NodeGraph.h"
 #include "Edge.h"
+#include "Node.h"
 #include <raylib.h>
 #include <deque>
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
-	//// Find a path from start to end (The current implementation is obviously insufficient)
-	//std::deque<Node*> path;
-	//path.push_back(start);
-	//path.push_back(start);
-	//path.push_back(end);
-	//return path;
-
+	//This helps use start and end without errors
 	Node* start = start;
 	Node* goal = end;
 

@@ -171,7 +171,6 @@
     <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
-    <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeGraph.cpp" />
     <ClCompile Include="Pac.cpp" />
     <ClCompile Include="PathfindBehavior.cpp" />
@@ -191,7 +190,6 @@
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="KeyboardBehavior.h" />
     <ClInclude Include="Maze.h" />
-    <ClInclude Include="Node.h" />
     <ClInclude Include="NodeGraph.h" />
     <ClInclude Include="Pac.h" />
     <ClInclude Include="PathfindBehavior.h" />

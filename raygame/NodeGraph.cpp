@@ -37,10 +37,14 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 			Node* currentEdgeEnd = nullptr;
 
 			if (currentNode == currentNode->edges[i]->connectedNode2)
+			{
 				currentEdgeEnd = currentNode->edges[i]->connectedNode1;
+			}
 
 			else
+			{
 				currentEdgeEnd = currentNode->edges[i]->connectedNode2;
+			}
 
 			if (!currentEdgeEnd->visited)
 			{

@@ -165,11 +165,13 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="Behavior.cpp" />
+    <ClCompile Include="Edge.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Ghost.cpp" />
     <ClCompile Include="KeyboardBehavior.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeGraph.cpp" />
     <ClCompile Include="Pac.cpp" />
     <ClCompile Include="PathfindBehavior.cpp" />
@@ -184,10 +186,12 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="Behavior.h" />
+    <ClInclude Include="Edge.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Ghost.h" />
     <ClInclude Include="KeyboardBehavior.h" />
     <ClInclude Include="Maze.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="NodeGraph.h" />
     <ClInclude Include="Pac.h" />
     <ClInclude Include="PathfindBehavior.h" />

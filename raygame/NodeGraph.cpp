@@ -1,14 +1,61 @@
 #include "NodeGraph.h"
+#include "Edge.h"
 #include <raylib.h>
+#include <deque>
 
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
-	// Find a path from start to end (The current implementation is obviously insufficient)
-	std::deque<Node*> path;
-	path.push_back(start);
-	path.push_back(start);
-	path.push_back(end);
-	return path;
+	//// Find a path from start to end (The current implementation is obviously insufficient)
+	//std::deque<Node*> path;
+	//path.push_back(start);
+	//path.push_back(start);
+	//path.push_back(end);
+	//return path;
+
+	Node* start = start;
+	Node* goal = end;
+
+	if (!start || !goal)
+		return;
+
+	start->color = ColorToInt(GREEN);
+	start->visited = true;
+
+	Node* currentNode = start;
+
+	std::deque<Node*> queue;
+	queue.push_front(start);
+
+	while (!queue.empty())
+	{
+		currentNode = queue[0];
+		queue.pop_front();
+
+		if (currentNode == goal)
+		{
+			currentNode->color = ColorToInt(YELLOW);
+			return;
+		}
+
+		for (int i = 0; i < currentNode->edges.size(); i++)
+		{
+			Node* currentEdgeEnd = nullptr;
+
+			if (currentNode == currentNode->edges[i]->connectedNode2)
+				currentEdgeEnd = currentNode->edges[i]->connectedNode1;
+
+			else
+				currentEdgeEnd = currentNode->edges[i]->connectedNode2;
+
+			if (!currentEdgeEnd->visited)
+			{
+				currentEdgeEnd->color = ColorToInt(RED);
+				currentEdgeEnd->visited = true;
+				queue.push_front(currentEdgeEnd);
+			}
+
+		}
+	}
 }
 
 void NodeGraph::drawGraph(Node* start)

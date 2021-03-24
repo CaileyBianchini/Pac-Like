@@ -1,5 +1,4 @@
 #include "NodeGraph.h"
-#include "Edge.h"
 #include "Node.h"
 #include <raylib.h>
 #include <deque>
@@ -7,19 +6,20 @@
 std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 {
 	//This helps use start and end without errors
-	Node* start = start;
+	Node* starter = start;
 	Node* goal = end;
 
-	if (!start || !goal)
-		return;
-
-	start->color = ColorToInt(GREEN);
-	start->visited = true;
-
-	Node* currentNode = start;
-
 	std::deque<Node*> queue;
-	queue.push_front(start);
+
+	if (!starter || !goal)
+		return queue;
+
+	starter->color = ColorToInt(GREEN);
+	starter->visited = true;
+
+	Node* currentNode = starter;
+	
+	queue.push_front(starter);
 
 	while (!queue.empty())
 	{
@@ -29,7 +29,7 @@ std::deque<NodeGraph::Node*> NodeGraph::findPath(Node* start, Node* end)
 		if (currentNode == goal)
 		{
 			currentNode->color = ColorToInt(YELLOW);
-			return;
+			return queue;
 		}
 
 		for (int i = 0; i < currentNode->edges.size(); i++)

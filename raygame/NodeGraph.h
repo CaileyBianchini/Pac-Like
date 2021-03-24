@@ -3,8 +3,8 @@
 #include <deque>
 #include <vector>
 
-class Node;
-class Edge;
+struct Node;
+struct Edge;
 
 namespace NodeGraph
 {
@@ -13,30 +13,29 @@ namespace NodeGraph
 	class Edge
 	{
 	public:
-		Edge(Node* node1, Node* node2);
 		Node* connectedNode1;
 		Node* connectedNode2;
 		float cost;
 		Node* target;
-		float cost;
 	};
 
 	class Node
 	{
 	public:
-		Node(int x, int y, int nodeSize);
 		std::vector<Edge*> edges;
+		MathLibrary::Vector2 position;
+		std::vector<Edge> connections;
 		MathLibrary::Vector2 graphPosition;
+
+		Node* previous;
+
 		int color = 0xFFFFFFFF;
 		int size = 1;
 		bool visited;
-		MathLibrary::Vector2 position;
-
 		float gScore;
-		Node* previous;
 
-		std::vector<Edge> connections;
 	};
+
 	/// <summary>
 	/// Find a path from the start node to the end node.
 	/// IMPLEMENT this function.
